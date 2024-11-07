@@ -24,7 +24,7 @@ def oldscratchgpt(msg, usr):
 
 @client.request
 def gen_image(prompt, usr):
-    # These are here for the filter, okay!
+	# These are here for the filter, okay!
 	MATURE_KEYWORDS = ['nude', 'sex', 'porn', 'erotic', 'adult', 'nsfw', '18+', 'fetish', 'explicit', 'sensual', 'xxx', 'strip', 'lingerie', 'sexual', 'mature', 'inappropriate', 'kink', 'penis', 'vagina', 'naked', 'sexy']
 	prompt = prompt.lower()
 	words = prompt.split(" ")
