@@ -23,7 +23,7 @@ def oldscratchgpt(msg, usr):
 	return response
 
 @client.request
-def gen_image(prompt, usr):
+def gen_image(prompt, usr, filename):
 	# These are here for the filter, okay!
 	MATURE_KEYWORDS = ['nude', 'sex', 'porn', 'erotic', 'adult', 'nsfw', '18+', 'fetish', 'explicit', 'sensual', 'xxx', 'strip', 'lingerie', 'sexual', 'mature', 'inappropriate', 'kink', 'penis', 'vagina', 'naked', 'sexy']
 	prompt = prompt.lower()
@@ -32,7 +32,7 @@ def gen_image(prompt, usr):
 		for word in words:
 			if word == keyword:
 				return "MATURE"
-	image_data = stablediff.generate_image(prompt)
+	image_data = stablediff.generate_image(prompt, filename)
 	return image_data
 
 @client.request
