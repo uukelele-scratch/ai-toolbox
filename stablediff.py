@@ -22,7 +22,7 @@ def rgb_to_number(rgb):
 	r, g, b = rgb
 	return r * 256**2 + g * 256 + b
 
-def generate_image(prompt):
+def generate_image(prompt, filename):
 	size = 64
 	image_bytes = query({
 		"inputs": f"{prompt}",
@@ -47,6 +47,9 @@ def generate_image(prompt):
 			rgb = resized_img.getpixel((x, y))[:3]
 			row.append(rgb_to_number(rgb))
 		image_data.append(row)
+
+	image.save(f"../Scribble/static/images/{filename}.jpeg")
+	
 	return image_data
 
 def uril(image):
